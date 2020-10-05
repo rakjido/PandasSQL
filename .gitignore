@@ -1,0 +1,8 @@
+.venv/
+.vscode/
+*.pyc
+__pycache__
+test.py
+config.xml
+*.log
+*.bak
