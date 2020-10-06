@@ -1,4 +1,4 @@
-
+import pandas as pd
 
 def pdsql(SELECT, FROM, WHERE=None, ORDER_BY=None) -> pd.DataFrame:
     """
@@ -25,11 +25,23 @@ def pdsql(SELECT, FROM, WHERE=None, ORDER_BY=None) -> pd.DataFrame:
             print("'WHERE' type should be List")
             return None
         else:
-            cond = None
-            cond = WHERE[0].split('>')
-            cond.insert(1,'>')
-            filter1 = eval("FROM['" + cond[0].strip() + "']" + cond[1] + cond[2])
-            FROM = FROM.loc[filter1,:]
+
+            # 순서가 중요. >=,<=가 나머지 보다 앞에 있어야 한다.
+            _keyword =['>=', '<=', '>', '<', '=']
+
+            for key in _keyword:
+            #    print(WHERE[0].find(key))
+                if (WHERE[0].find(key)>0):
+                    cond = None
+                    cond=WHERE[0].split(key)
+                    if (key =='='):
+                        key='=='
+                    cond.insert(1, key)
+                    print("FROM['" + cond[0].strip() + "']" + cond[1] + cond[2])
+                    filter1 = eval("FROM['" + cond[0].strip() + "']" + cond[1] + cond[2])
+                    
+                    FROM = FROM.loc[filter1,:]
+                    break
 
     if not isinstance(SELECT, list):
         print("'SELECT' type should be List")
