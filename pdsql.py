@@ -1,8 +1,11 @@
 import pandas as pd
+from typing import List
 
-def pdsql(SELECT, FROM, WHERE=None, ORDER_BY=None) -> pd.DataFrame:
+Vector = List[str]
+
+def pdsql(SELECT: Vector, FROM: Vector, WHERE: Vector = None, ORDER_BY: Vector=None) -> pd.DataFrame:
     """
-    Return dataframe with condition of SQL
+    Return pandas dataframe with the result of the SQL query.
 
     Parameters
     ----------
@@ -13,7 +16,7 @@ def pdsql(SELECT, FROM, WHERE=None, ORDER_BY=None) -> pd.DataFrame:
 
     Returns
     -------
-    queried result
+    dataframe of queried result
 """
 
     if not isinstance(FROM, pd.DataFrame):

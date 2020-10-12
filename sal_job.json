@@ -1,0 +1,60 @@
+{
+    "schema": {
+        "fields": [
+            {
+                "name": "index",
+                "type": "integer"
+            },
+            {
+                "name": "JOB",
+                "type": "string"
+            },
+            {
+                "name": "sum_sal",
+                "type": "integer"
+            },
+            {
+                "name": "avg_sal",
+                "type": "number"
+            },
+            {
+                "name": "max_sal",
+                "type": "integer"
+            },
+            {
+                "name": "min_sal",
+                "type": "integer"
+            }
+        ],
+        "primaryKey": [
+            "index"
+        ],
+        "pandas_version": "0.20.0"
+    },
+    "data": [
+        {
+            "index": 0,
+            "JOB": "MANAGER",
+            "sum_sal": 2975,
+            "avg_sal": 2975.0,
+            "max_sal": 2975,
+            "min_sal": 2975
+        },
+        {
+            "index": 1,
+            "JOB": "CLERK",
+            "sum_sal": 1900,
+            "avg_sal": 950.0,
+            "max_sal": 1100,
+            "min_sal": 800
+        },
+        {
+            "index": 2,
+            "JOB": "ANALYST",
+            "sum_sal": 6000,
+            "avg_sal": 3000.0,
+            "max_sal": 3000,
+            "min_sal": 3000
+        }
+    ]
+}
